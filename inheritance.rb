@@ -28,7 +28,7 @@ end
 
 class DailyAppointment < Appointment
     def occurs_on?(hour, min)
-        (self.hour == hour) and (self.min == min) ? true : false
+        self.hour == hour && self.min == min ? true : false
     end
 
     def to_s
@@ -45,7 +45,7 @@ class OneTimeAppointment < Appointment
     end
 
     def occurs_on?(day, month, year)
-        self.day == day and self.month == month and self.year == year ? true : false
+        self.day == day && self.month == month && self.year == year ? true : false
     end
 
     def to_s
@@ -53,9 +53,12 @@ class OneTimeAppointment < Appointment
     end
 end
 
+#creating instances
 puts one_time = OneTimeAppointment.new('Desafío Latam', 'Trabajo', 14, 30, 4, 6, 2019)
-puts one_time.occurs_on?(4, 6, 2019)
 puts daily = DailyAppointment.new('Desafío Latam', 'Educación', 8, 15)
-puts daily.occurs_on?(8, 15)
 puts monthly = MonthlyAppointment.new('NASA', 'Aliens', 8, 15, 23)
+
+#testing occurs_on? method
+puts one_time.occurs_on?(4, 6, 2019)
+puts daily.occurs_on?(8, 15)
 puts monthly.occurs_on?(23)
