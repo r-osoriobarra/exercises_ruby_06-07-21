@@ -1,4 +1,4 @@
-# Desafío - Inheritence and UML 06-07-21
+# Desafío - Inheritance and UML 06-07-21
 
 Tercer desafío del módulo "Desarrollo de aplicaciones web con Rails" @DesafíoLatam. El objetivo es aplicar los conceptos de programación orientada a objetos en Ruby.
 
