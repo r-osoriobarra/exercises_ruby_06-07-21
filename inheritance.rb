@@ -8,18 +8,6 @@ class Appointment
         @hour = hour
         @min = min
     end
-    def self.location
-        self.location
-    end
-    def self.purpose
-        self.purpose
-    end
-    def self.hour
-        self.hour
-    end
-    def self.min
-        self.min
-    end
 end
 
 class MonthlyAppointment < Appointment
@@ -28,9 +16,6 @@ class MonthlyAppointment < Appointment
         super(location, purpose, hour, min)
         @day = day
     end
-    def self.day
-        self.day
-    end
     def occurs_on?(d)
         if day == d
             true
@@ -38,9 +23,8 @@ class MonthlyAppointment < Appointment
             false
         end
     end
-
     def to_s
-        "Reunión mensual en #{location} sobre #{purpose} el #{day} a la(s) #{hour}:#{min}."
+        "Reunión mensual en #{self.location} sobre #{self.purpose} el #{self.day} a la(s) #{self.hour}:#{self.min}."
     end
 end
 
@@ -53,7 +37,7 @@ class DailyAppointment < Appointment
         end
     end
     def to_s
-        "Reunión diaria en #{location} sobre #{purpose} a la(s) #{hour}:#{min}." 
+        "Reunión diaria en #{self.location} sobre #{self.purpose} a la(s) #{self.hour}:#{self.min}." 
     end
 end
 class OneTimeAppointment < Appointment
@@ -64,15 +48,6 @@ class OneTimeAppointment < Appointment
         @month = month
         @year = year
     end
-    def self.day
-        self.day
-    end
-    def self.month
-        self.month
-    end
-    def self.year
-        self.year
-    end
     def occurs_on?(d, m, y)
         if day == d and month = m and year = y
             true
@@ -81,7 +56,7 @@ class OneTimeAppointment < Appointment
         end
     end
     def to_s
-        "Reunión única en #{location} sobre #{purpose} el #{day}/#{month}/#{year} a la(s) #{hour}:#{min}."
+        "Reunión única en #{self.location} sobre #{self.purpose} el #{self.day}/#{self.month}/#{self.year} a la(s) #{self.hour}:#{self.min}."
     end
 end
 
