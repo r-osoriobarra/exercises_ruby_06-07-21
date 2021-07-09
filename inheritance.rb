@@ -1,12 +1,14 @@
 #Desafio Herencia/UML
+require_relative 'validation_module.rb'
 
 class Appointment
+    include Validation_attr
     attr_reader :location, :purpose, :hour, :min
     def initialize(location, purpose, hour, min)
-        @location = location
-        @purpose = purpose
-        @hour = hour
-        @min = min
+        string_validate(@location = location)
+        string_validate(@purpose = purpose)
+        integer_validate(@hour = hour)
+        integer_validate(@min = min)
     end
 end
 
@@ -14,7 +16,7 @@ class MonthlyAppointment < Appointment
     attr_reader :day
     def initialize(location, purpose, hour, min, day)
         super(location, purpose, hour, min)
-        @day = day
+        integer_validate(@day = day)
     end
 
     def occurs_on?(day)
@@ -39,9 +41,9 @@ class OneTimeAppointment < Appointment
     attr_reader :day, :month, :year
     def initialize(location, purpose, hour, min, day, month, year)
         super(location, purpose, hour, min)
-        @day = day
-        @month = month
-        @year = year
+        integer_validate(@day = day)
+        integer_validate(@month = month)
+        integer_validate(@year = year)
     end
 
     def occurs_on?(day, month, year)

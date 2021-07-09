@@ -6,6 +6,7 @@ Tercer desafío del módulo "Desarrollo de aplicaciones web con Rails" @Desafío
 
 Este proyecto tiene sólo la rama main, que contiene:
 * inheritance.rb -> ejercicio completo utilizando herencia de clases
+* validation_module.rb -> modulo con métodos para validación de tipo de datos
 
 ## Constructed with
 * Ruby 2.5.3
